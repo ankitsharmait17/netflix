@@ -9,8 +9,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <Switch>
-      <Route path="/" component={HomePage} />
-      <Route path="/Movie" component={MoviePage} />
+      <Route path="/" exact component={HomePage} />
+      <Route path="/Movie" exact component={MoviePage} />
       <Route component={PageNotFound} />
     </Switch>
   );

@@ -2,3 +2,29 @@ body {
   background-color: #231f1e !important;
   padding-top: 75px;
 }
+
+.card-title {
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.card-subtitle {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 12px;
+}
+
+.card {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: table-cell;
+  border-spacing: 2px;
+  height: 100%;
+}
+
+.movie-grid-col {
+  margin-bottom: 10px;
+}
