@@ -4,6 +4,7 @@ import { Container, Row, Col, Card, CardImg } from "reactstrap";
 import * as imdbAPI from "../../api/imdbAPI";
 import data from "../../data.json";
 import Spinner from "../Common/Spinner";
+import PropTypes from "prop-types";
 
 const ShowPage = ({ match }) => {
   const [showData, setshowData] = useState({
@@ -85,6 +86,10 @@ const ShowPage = ({ match }) => {
       </Row>
     </Container>
   );
+};
+
+ShowPage.propTypes = {
+  match: PropTypes.object
 };
 
 export default ShowPage;

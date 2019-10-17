@@ -8,11 +8,12 @@ import {
   CardSubtitle
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const ShowCard = ({ show }) => {
   return (
     <Card>
-      <Link to={`/Movie/${show.imdbID}`}>
+      <Link to={`/Show/${show.imdbID}`}>
         <CardImg
           top
           src={`${window.location.origin}/images/posters/${show.poster}`}
@@ -26,6 +27,10 @@ const ShowCard = ({ show }) => {
       </CardBody>
     </Card>
   );
+};
+
+ShowCard.propTypes = {
+  show: PropTypes.object.isRequired
 };
 
 export default ShowCard;

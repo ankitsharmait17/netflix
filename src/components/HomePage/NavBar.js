@@ -11,6 +11,7 @@ import {
   InputGroupAddon,
   Button
 } from "reactstrap";
+import PropTypes from "prop-types";
 
 const NavBar = ({ searchText, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,6 +69,11 @@ const NavBar = ({ searchText, onChange }) => {
       </Navbar>
     </React.Fragment>
   );
+};
+
+NavBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
 export default NavBar;
