@@ -25,3 +25,8 @@ body {
 .movie-grid-col {
   margin-bottom: 10px;
 }
+
+.card-body {
+  background-color: #333231;
+  color: white;
+}

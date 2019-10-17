@@ -11,7 +11,6 @@ import {
   InputGroupAddon,
   Button
 } from "reactstrap";
-import logo from "../logo.jpg";
 
 const NavBar = ({ searchText, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +35,12 @@ const NavBar = ({ searchText, onChange }) => {
         id="navbar-lg"
       >
         <NavbarBrand href={"/"}>
-          <img src={logo} alt="Netflix" width="32px" height="32px" />
+          <img
+            src={`${window.location.origin}/logo.jpg`}
+            alt="Netflix"
+            width="32px"
+            height="32px"
+          />
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

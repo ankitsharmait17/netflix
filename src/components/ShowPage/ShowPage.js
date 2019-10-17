@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Card, CardImg } from "reactstrap";
-import * as imdbAPI from "../api/imdbAPI";
-import data from ".././data.json";
-import Spinner from "./Spinner";
+import * as imdbAPI from "../../api/imdbAPI";
+import data from "../../data.json";
+import Spinner from "../Common/Spinner";
 
-const MoviePage = ({ match }) => {
+const ShowPage = ({ match }) => {
   const [showData, setshowData] = useState({
     title: "",
     rating: "",
@@ -48,10 +48,8 @@ const MoviePage = ({ match }) => {
           <h1>{showData.title}</h1>
         </Col>
         <Col lg="4">
-          <h2>
-            <span style={{ color: "yellow" }}>&#9733;</span>
-            {showData.rating}/10
-          </h2>
+          <span style={{ color: "yellow", fontSize: "40px" }}>&#9733;</span>
+          <span style={{ fontSize: "40px" }}>{showData.rating}</span>/10
         </Col>
       </Row>
       <Row>
@@ -89,4 +87,4 @@ const MoviePage = ({ match }) => {
   );
 };
 
-export default MoviePage;
+export default ShowPage;

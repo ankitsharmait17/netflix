@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
-import MovieCard from "./MovieCard";
+import ShowCard from "./ShowCard";
 
-const MovieGrid = ({ shows, searchText }) => {
+const ShowGrid = ({ shows, searchText }) => {
   const filteredShows =
     searchText.length > 0
       ? shows.filter(element =>
@@ -14,7 +14,7 @@ const MovieGrid = ({ shows, searchText }) => {
       <Row>
         {filteredShows.map((element, index) => (
           <Col lg="3" className="movie-grid-col" key={index}>
-            <MovieCard show={element} key={index} />
+            <ShowCard show={element} key={index} />
           </Col>
         ))}
       </Row>
@@ -22,4 +22,4 @@ const MovieGrid = ({ shows, searchText }) => {
   );
 };
 
-export default MovieGrid;
+export default ShowGrid;

@@ -9,7 +9,7 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
-const MovieCard = ({ show }) => {
+const ShowCard = ({ show }) => {
   return (
     <Card>
       <Link to={`/Movie/${show.imdbID}`}>
@@ -28,4 +28,4 @@ const MovieCard = ({ show }) => {
   );
 };
 
-export default MovieCard;
+export default ShowCard;
