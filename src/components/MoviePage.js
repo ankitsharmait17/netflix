@@ -1,12 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Card, CardImg } from "reactstrap";
+import * as imdbAPI from "../api/imdbAPI";
 
 const MoviePage = ({ location, history }) => {
+  const [rating, setRating] = useState("");
+  const getRating = async () => {
+    const result = await imdbAPI.getImdbRating(location.show.imdbID);
+    setRating(result.imdbRating);
+  };
   useEffect(() => {
     if (!location.show) {
       history.push("/");
     }
+    getRating();
   }, []);
   return location.show ? (
     <Container style={{ color: "white" }}>
@@ -22,7 +29,8 @@ const MoviePage = ({ location, history }) => {
         </Col>
         <Col lg="4">
           <h2>
-            <span style={{ color: "yellow" }}>&#9733;</span>7.6/10
+            <span style={{ color: "yellow" }}>&#9733;</span>
+            {rating}/10
           </h2>
         </Col>
       </Row>
@@ -45,8 +53,8 @@ const MoviePage = ({ location, history }) => {
             src={`https://www.youtube.com/embed/${location.show.trailer}`}
             width="100%"
             height="100%"
-            frameborder="10px"
-            allowfullscreen="yes"
+            frameBorder="10px"
+            allowFullScreen="yes"
           ></iframe>
         </Col>
       </Row>
