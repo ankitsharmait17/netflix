@@ -10,14 +10,19 @@ import {
 } from "reactstrap";
 import logo from "../logo.jpg";
 
-const NavBar = props => {
+const NavBar = ({ searchText, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
+  const handleChange = e => {
+    const value = e.target.value;
+    onChange(value);
+  };
+
   return (
     <React.Fragment>
-      <Navbar dark expand="md" fixed="top" id="navbar-lg">
+      <Navbar expand="md" fixed="top" id="navbar-lg">
         <NavbarBrand href={"/"}>
           <img src={logo} alt="Netflix" width="32px" height="32px" />
         </NavbarBrand>
@@ -29,6 +34,8 @@ const NavBar = props => {
                 type="text"
                 style={{ color: "white", backgroundColor: "#181a19" }}
                 placeholder="Search"
+                value={searchText}
+                onChange={handleChange}
               />
             </NavItem>
           </Nav>
