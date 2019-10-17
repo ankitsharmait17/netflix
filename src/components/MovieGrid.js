@@ -4,7 +4,7 @@ import MovieCard from "./MovieCard";
 
 const MovieGrid = ({ shows, searchText }) => {
   return (
-    <Container>
+    <Container style={{ marginTop: "75px" }}>
       <Row>
         {shows.map((element, index) => (
           <Col lg="4" className="movie-grid-col" key={index}>

@@ -2,21 +2,41 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Card, CardImg } from "reactstrap";
 import * as imdbAPI from "../api/imdbAPI";
+import data from ".././data.json";
+import Spinner from "./Spinner";
 
-const MoviePage = ({ location, history }) => {
-  const [rating, setRating] = useState("");
-  const getRating = async () => {
-    const result = await imdbAPI.getImdbRating(location.show.imdbID);
-    setRating(result.imdbRating);
+const MoviePage = ({ match }) => {
+  const [showData, setshowData] = useState({
+    title: "",
+    rating: "",
+    year: "",
+    poster: "",
+    trailer: "",
+    description: ""
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const getData = async () => {
+    setIsLoading(true);
+    const id = match.params.id;
+    const show = data.shows.find(element => element.imdbID === id);
+    const result = await imdbAPI.getImdbRating(id);
+    setshowData({
+      title: show.title,
+      description: show.description,
+      rating: result.imdbRating,
+      year: show.year,
+      poster: show.poster,
+      trailer: show.trailer
+    });
+    setIsLoading(false);
   };
   useEffect(() => {
-    if (!location.show) {
-      history.push("/");
-    }
-    getRating();
+    getData();
   }, []);
-  return location.show ? (
-    <Container style={{ color: "white" }}>
+  return isLoading ? (
+    <Spinner />
+  ) : (
+    <Container style={{ color: "white", marginTop: "20px" }}>
       <Row>
         <Link to="/" className="btn btn-secondary">
           Back
@@ -25,34 +45,34 @@ const MoviePage = ({ location, history }) => {
       <br />
       <Row>
         <Col lg="8">
-          <h1>{location.show.title}</h1>
+          <h1>{showData.title}</h1>
         </Col>
         <Col lg="4">
           <h2>
             <span style={{ color: "yellow" }}>&#9733;</span>
-            {rating}/10
+            {showData.rating}/10
           </h2>
         </Col>
       </Row>
       <Row>
-        <Col lg="1">({location.show.year})</Col>
+        <Col lg="1">({showData.year})</Col>
       </Row>
       <Row>
         <Col lg="3">
           <Card>
             <CardImg
               height="100%"
-              src={require(`../images/posters/${location.show.poster}`)}
-              alt={location.show.title}
+              src={`${window.location.origin}/images/posters/${showData.poster}`}
+              alt={showData.title}
             ></CardImg>
           </Card>
         </Col>
-        <Col lg="9" style={{ marginTop: "10px" }}>
+        <Col lg="9" style={{ marginTop: "10px", borderRadius: "10px" }}>
           <iframe
-            title={location.show.title}
-            src={`https://www.youtube.com/embed/${location.show.trailer}`}
+            title={showData.title}
+            src={`https://www.youtube.com/embed/${showData.trailer}`}
             width="100%"
-            height="100%"
+            height="102%"
             frameBorder="10px"
             allowFullScreen="yes"
           ></iframe>
@@ -61,12 +81,11 @@ const MoviePage = ({ location, history }) => {
       <br />
       <Row>
         <Col lg="12">
-          Synopsis:<p>{location.show.description}</p>
+          <b>Synopsis:</b>
+          <p>{showData.description}</p>
         </Col>
       </Row>
     </Container>
-  ) : (
-    <h1>Please go back to home screen</h1>
   );
 };
 

@@ -10,7 +10,7 @@ function App() {
   return (
     <Switch>
       <Route path="/" exact component={HomePage} />
-      <Route path="/Movie" exact component={MoviePage} />
+      <Route path="/Movie/:id" exact component={MoviePage} />
       <Route component={PageNotFound} />
     </Switch>
   );

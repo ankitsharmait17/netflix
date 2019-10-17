@@ -12,10 +12,10 @@ import { Link } from "react-router-dom";
 const MovieCard = ({ show }) => {
   return (
     <Card>
-      <Link to={{ pathname: "/Movie", show }}>
+      <Link to={`/Movie/${show.imdbID}`}>
         <CardImg
           top
-          src={require(`../images/posters/${show.poster}`)}
+          src={`${window.location.origin}/images/posters/${show.poster}`}
           alt="Card image cap"
         />
       </Link>
