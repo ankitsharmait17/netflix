@@ -19,8 +19,6 @@ body {
 .card {
   margin-top: 10px;
   margin-bottom: 10px;
-  display: table-cell;
-  border-spacing: 2px;
   height: 100%;
 }
 

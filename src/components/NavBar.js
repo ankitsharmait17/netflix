@@ -22,7 +22,12 @@ const NavBar = ({ searchText, onChange }) => {
 
   return (
     <React.Fragment>
-      <Navbar expand="md" fixed="top" id="navbar-lg">
+      <Navbar
+        style={{ backgroundColor: "#231f1e" }}
+        expand="md"
+        fixed="top"
+        id="navbar-lg"
+      >
         <NavbarBrand href={"/"}>
           <img src={logo} alt="Netflix" width="32px" height="32px" />
         </NavbarBrand>

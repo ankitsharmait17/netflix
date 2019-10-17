@@ -13,7 +13,7 @@ const MovieGrid = ({ shows, searchText }) => {
     <Container style={{ marginTop: "75px" }}>
       <Row>
         {filteredShows.map((element, index) => (
-          <Col lg="4" className="movie-grid-col" key={index}>
+          <Col lg="3" className="movie-grid-col" key={index}>
             <MovieCard show={element} key={index} />
           </Col>
         ))}
