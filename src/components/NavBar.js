@@ -6,7 +6,10 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  Input
+  Input,
+  InputGroup,
+  InputGroupAddon,
+  Button
 } from "reactstrap";
 import logo from "../logo.jpg";
 
@@ -18,6 +21,10 @@ const NavBar = ({ searchText, onChange }) => {
   const handleChange = e => {
     const value = e.target.value;
     onChange(value);
+  };
+
+  const clear = () => {
+    onChange("");
   };
 
   return (
@@ -35,13 +42,22 @@ const NavBar = ({ searchText, onChange }) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <Input
-                type="text"
-                style={{ color: "white", backgroundColor: "#181a19" }}
-                placeholder="Search"
-                value={searchText}
-                onChange={handleChange}
-              />
+              <InputGroup>
+                <Input
+                  type="text"
+                  style={{ color: "white", backgroundColor: "#181a19" }}
+                  placeholder="Search"
+                  value={searchText}
+                  onChange={handleChange}
+                />
+                {searchText.length > 0 && (
+                  <InputGroupAddon addonType="append">
+                    <Button color="secondary" onClick={clear}>
+                      X
+                    </Button>
+                  </InputGroupAddon>
+                )}
+              </InputGroup>
             </NavItem>
           </Nav>
         </Collapse>
