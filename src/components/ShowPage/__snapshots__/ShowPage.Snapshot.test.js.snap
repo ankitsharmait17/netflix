@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`passing correct imdbID,should render,Show display component 1`] = `
+<div
+  className="container"
+  style={
+    Object {
+      "color": "white",
+      "marginTop": "20px",
+    }
+  }
+>
+  <div
+    className="row"
+  >
+    <a
+      className="btn btn-secondary"
+      href="/"
+      onClick={[Function]}
+    >
+      Back
+    </a>
+  </div>
+  <br />
+  <div
+    className="row"
+  >
+    <div
+      className="col-lg-8"
+    >
+      <h1>
+        
+      </h1>
+    </div>
+    <div
+      className="col-lg-4"
+    >
+      Rating:
+      <span
+        style={
+          Object {
+            "color": "yellow",
+            "fontSize": "40px",
+          }
+        }
+      >
+        ★
+      </span>
+      <span
+        style={
+          Object {
+            "fontSize": "40px",
+          }
+        }
+      >
+        
+      </span>
+      /10
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-lg-1"
+    >
+      (
+      
+      )
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-lg-3"
+    >
+      <div
+        className="card"
+      >
+        <img
+          alt=""
+          className="card-img"
+          height="100%"
+          src="http://localhost/images/posters/"
+        />
+      </div>
+    </div>
+    <div
+      className="col-lg-9"
+      style={
+        Object {
+          "borderRadius": "10px",
+          "marginTop": "10px",
+        }
+      }
+    >
+      <iframe
+        allowFullScreen="yes"
+        frameBorder="10px"
+        height="102%"
+        src="https://www.youtube.com/embed/"
+        title=""
+        width="100%"
+      />
+    </div>
+  </div>
+  <br />
+  <div
+    className="row"
+  >
+    <div
+      className="col-lg-12"
+    >
+      <b>
+        Synopsis:
+      </b>
+      <p>
+        
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`passing incorrect imdbID,should render,ShowNotFound component 1`] = `
+<div
+  className="container"
+  style={
+    Object {
+      "color": "white",
+      "marginTop": "20px",
+    }
+  }
+>
+  <div
+    className="row"
+  >
+    <a
+      className="btn btn-secondary"
+      href="/"
+      onClick={[Function]}
+    >
+      Back
+    </a>
+  </div>
+  <br />
+  <div
+    className="row"
+  >
+    <div
+      className="text-center col-lg-12"
+    >
+      <h1>
+        Show not found.
+      </h1>
+    </div>
+  </div>
+</div>
+`;
