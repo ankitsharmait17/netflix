@@ -17,28 +17,29 @@ const ShowPage = ({ match }) => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const getData = async () => {
-    setIsLoading(true);
-    const id = match.params.id;
-    const show = data.shows.find(element => element.imdbID === id);
-    if (show) {
-      const result = await imdbAPI.getImdbRating(id);
-      setshowData({
-        title: show.title,
-        description: show.description,
-        rating: result.imdbRating,
-        year: show.year,
-        poster: show.poster,
-        trailer: show.trailer
-      });
-    } else {
-      setIsError(true);
-    }
-    setIsLoading(false);
-  };
+
   useEffect(() => {
+    const getData = async () => {
+      setIsLoading(true);
+      const id = match.params.id;
+      const show = data.shows.find(element => element.imdbID === id);
+      if (show) {
+        const result = await imdbAPI.getImdbRating(id);
+        setshowData({
+          title: show.title,
+          description: show.description,
+          rating: result.imdbRating,
+          year: show.year,
+          poster: show.poster,
+          trailer: show.trailer
+        });
+      } else {
+        setIsError(true);
+      }
+      setIsLoading(false);
+    };
     getData();
-  }, []);
+  }, [match]);
 
   return isLoading ? (
     <Spinner />
